@@ -11,4 +11,9 @@ namespace Qrng {
             return MResetZ(q);  // Measure the qubit value.
         }
     }
+
+    @EntryPoint()
+    operation Main() : Int {
+        return 0;
+    }
 }

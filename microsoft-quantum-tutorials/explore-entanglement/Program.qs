@@ -17,6 +17,7 @@ namespace Bell {
         using (qubit = Qubit()) {
             for (test in 1..count) {
                 SetQubitState(initial, qubit);
+                X(qubit);
                 let res = M(qubit);
 
                 // Count the number of ones we saw:

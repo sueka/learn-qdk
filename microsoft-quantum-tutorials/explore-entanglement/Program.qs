@@ -1,10 +1,9 @@
-namespace explore-entanglement {
+namespace Bell {
     open Microsoft.Quantum.Canon;
     open Microsoft.Quantum.Intrinsic;
-    
 
     @EntryPoint()
-    operation SayHello() : Unit {
+    operation HelloQ() : Unit {
         Message("Hello quantum world!");
     }
 }

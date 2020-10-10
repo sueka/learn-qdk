@@ -33,7 +33,7 @@ namespace Bell {
     }
 
     @EntryPoint()
-    operation HelloQ() : Unit {
-        Message("Hello quantum world!");
+    operation HelloQ() : (Int, Int) {
+        return TestBellState(10, One);
     }
 }

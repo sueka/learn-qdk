@@ -11,8 +11,9 @@ namespace Bell {
     }
 
     @EntryPoint()
-    operation TestBellState(count : Int, initial : Result) : (Int, Int) {
+    operation TestBellState(count : Int, initial : Result) : (Int, Int, Int) {
         mutable numOnes = 0;
+        mutable agree = 0;
 
         using ((q0, q1) = (Qubit(), Qubit())) {
             for (test in 1..count) {
@@ -21,6 +22,10 @@ namespace Bell {
                 H(q0);
                 CNOT(q0, q1); // Flip q1 (target qubit) when q0 (control qubit) is One
                 let res = M(q0);
+
+                if (M(q1) == res) {
+                    set agree += 1;
+                }
 
                 // Count the number of ones we saw:
                 if (res == One) {
@@ -33,6 +38,6 @@ namespace Bell {
 
         // Return number of times we saw a |0> and number of times we saw a |1>
         Message("Test results (# of 0s, # of 1s): ");
-        return (count - numOnes, numOnes);
+        return (count - numOnes, numOnes, agree);
     }
 }

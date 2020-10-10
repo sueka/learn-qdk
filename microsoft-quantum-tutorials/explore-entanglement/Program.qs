@@ -14,11 +14,11 @@ namespace Bell {
     operation TestBellState(count : Int, initial : Result) : (Int, Int) {
         mutable numOnes = 0;
 
-        using (qubit = Qubit()) {
+        using ((q0, q1) = (Qubit(), Qubit())) {
             for (test in 1..count) {
-                SetQubitState(initial, qubit);
-                H(qubit);
-                let res = M(qubit);
+                SetQubitState(initial, q0);
+                H(q0);
+                let res = M(q0);
 
                 // Count the number of ones we saw:
                 if (res == One) {
@@ -26,7 +26,7 @@ namespace Bell {
                 }
             }
 
-            SetQubitState(Zero, qubit);
+            SetQubitState(Zero, q0);
         }
 
         // Return number of times we saw a |0> and number of times we saw a |1>

@@ -12,6 +12,20 @@ namespace Qrng {
         }
     }
 
+    operation SampleRandomNumberInRange(max : Int) : Int {
+        mutable bits = new Result[0];
+
+        for (idxBit in 1..BitSizeI(max)) {
+            set bits += [SampleQuantumRandomNumberGenerator()];
+        }
+
+        let sample = ResultArrayAsInt(bits);
+
+        return sample > max
+            ? SampleRandomNumberInRange(max)
+            | sample;
+    }
+
     @EntryPoint()
     operation Main() : Int {
         return 0;

@@ -34,6 +34,7 @@ namespace Bell {
             }
 
             SetQubitState(Zero, q0);
+            SetQubitState(Zero, q1);
         }
 
         // Return number of times we saw a |0> and number of times we saw a |1>

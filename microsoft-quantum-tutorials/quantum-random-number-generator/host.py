@@ -1,6 +1,6 @@
 import qsharp
 from Qrng import SampleQuantumRandomNumberGenerator # We import the
-# quantum operation from the namespace defined in the file Qrng.qs
+# quantum operation from the namespace defined in the file Program.qs
 max = 50 # Here we set the maximum of our range
 output = max + 1 # Variable to store the output
 while output > max:

@@ -19,6 +19,7 @@ namespace Bell {
                 SetQubitState(initial, q0);
                 SetQubitState(Zero, q1);
                 H(q0);
+                CNOT(q0, q1); // Flip q1 (target qubit) when q0 (control qubit) is One
                 let res = M(q0);
 
                 // Count the number of ones we saw:

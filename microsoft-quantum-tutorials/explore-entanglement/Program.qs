@@ -17,6 +17,7 @@ namespace Bell {
         using ((q0, q1) = (Qubit(), Qubit())) {
             for (test in 1..count) {
                 SetQubitState(initial, q0);
+                SetQubitState(Zero, q1);
                 H(q0);
                 let res = M(q0);
 

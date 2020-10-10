@@ -10,6 +10,7 @@ namespace Bell {
         }
     }
 
+    @EntryPoint()
     operation TestBellState(count : Int, initial : Result) : (Int, Int) {
         mutable numOnes = 0;
 
@@ -30,10 +31,5 @@ namespace Bell {
         // Return number of times we saw a |0> and number of times we saw a |1>
         Message("Test results (# of 0s, # of 1s): ");
         return (count - numOnes, numOnes);
-    }
-
-    @EntryPoint()
-    operation HelloQ() : (Int, Int) {
-        return TestBellState(10, One);
     }
 }
